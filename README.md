@@ -119,11 +119,20 @@ Created symlink /etc/systemd/system/multi-user.target.wants/httpd.service → /u
 [ec2-user@ip-10-20-1-245 ~]$ sudo systemctl start httpd
 [ec2-user@ip-10-20-1-245 ~]$
 
-## ⚙️: Create the public web page
-
-### Command
-```bash
+[ec2-user@ip-10-20-1-245 ~]$ sudo systemctl restart httpd
+[ec2-user@ip-10-20-1-245 ~]$ curl http://localhost
+<h1>Hospital Patient Portal</h1><p>Public patient landing page running in hospital VPC.</p>
+[ec2-user@ip-10-20-1-245 ~]$ 
 [ec2-user@ip-10-20-1-245 ~]$ echo "<h1>Hospital Patient Portal</h1><p>Public patient landing page running in hospital VPC.</p>" | sudo tee /var/www/html/index.html
 <h1>Hospital Patient Portal</h1><p>Public patient landing page running in hospital VPC.</p>
 [ec2-user@ip-10-20-1-245 ~]$ 
 
+
+## ⚙️: Test
+
+### Command
+```bash
+sudo systemctl restart httpd
+[ec2-user@ip-10-20-1-245 ~]$ curl http://localhost
+<h1>Hospital Patient Portal</h1><p>Public patient landing page running in hospital VPC.</p>
+[ec2-user@ip-10-20-1-245 ~]$ 
