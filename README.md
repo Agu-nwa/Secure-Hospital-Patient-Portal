@@ -135,4 +135,36 @@ Created symlink /etc/systemd/system/multi-user.target.wants/httpd.service → /u
 sudo systemctl restart httpd
 [ec2-user@ip-10-20-1-245 ~]$ curl http://localhost
 <h1>Hospital Patient Portal</h1><p>Public patient landing page running in hospital VPC.</p>
-[ec2-user@ip-10-20-1-245 ~]$ 
+[ec2-user@ip-10-20-1-245 ~]$
+
+## ⚙️: Copy the private key to public EC2
+
+### Command
+```bash
+charles@Dev ~ % scp -i ~/Documents/hos.pem ~/Documents/hos.pem ec2-user@51.20.253.247:/home/ec2-user/hos.pem
+hos.pem                                                                                                                                                                   100% 1674    10.4KB/s   00:00    
+charles@Dev ~ %
+
+## ⚙️: Connect from public EC2 to private EC2 using private VPC networking.
+
+### Command
+```bash
+ssh -i ~/hos.pem ec2-user@10.20.131.135
+The authenticity of host '10.20.131.135 (10.20.131.135)' can't be established.
+ED25519 key fingerprint is SHA256:xhtyQT4aHEvBzgDmo7OA9omq6q8Ejwq5ryLFU6lg8DM.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '10.20.131.135' (ED25519) to the list of known hosts.
+   ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+[ec2-user@ip-10-20-131-135 ~]$ 
+
+
