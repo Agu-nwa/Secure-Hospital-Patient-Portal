@@ -291,4 +291,21 @@ Complete!
 sudo systemctl enable httpd
 Created symlink /etc/systemd/system/multi-user.target.wants/httpd.service → /usr/lib/systemd/system/httpd.service.
 [ec2-user@ip-10-20-131-135 ~]$ sudo systemctl start httpd
+[ec2-user@ip-10-20-131-135 ~]$
+
+## ⚙️: Create Test Pages
+
+### Command
+```bash
+echo "<h1>Hospital Private Backend</h1><p>This backend is running inside a private subnet.</p>" | sudo tee /var/www/html/index.html
+<h1>Hospital Private Backend</h1><p>This backend is running inside a private subnet.</p>
 [ec2-user@ip-10-20-131-135 ~]$ 
+
+## ⚙️: Test
+
+### Command
+```bash
+ curl http://51.20.253.247
+<h1>Hospital Patient Portal</h1><p>Public patient landing page running in hospital VPC.</p>
+[ec2-user@ip-10-20-131-135 ~]$ 
+
