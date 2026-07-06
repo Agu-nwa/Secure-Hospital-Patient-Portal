@@ -307,5 +307,17 @@ echo "<h1>Hospital Private Backend</h1><p>This backend is running inside a priva
 ```bash
  curl http://51.20.253.247
 <h1>Hospital Patient Portal</h1><p>Public patient landing page running in hospital VPC.</p>
-[ec2-user@ip-10-20-131-135 ~]$ 
+[ec2-user@ip-10-20-131-135 ~]$
+
+## ⚙️: Veriy....
+
+### Command
+```bash
+ % aws sts get-caller-identity
+{
+    "UserId": "AIDA573C7WMD4QOKW3QMC",
+    "Account": "961743401735",
+    "Arn": "arn:aws:iam::961743401735:user/bank"
+}
+
 
